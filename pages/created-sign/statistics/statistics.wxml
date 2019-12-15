@@ -1,0 +1,113 @@
+<!--pages/created-sign/statistics/statistics.wxml-->
+<view class="sta-whole">
+ <view class='tar'>
+  <button 
+  catchtap='mysign'
+  class="top-btn {{selected1 ? 'top-btn-selected' : ''}}">签到统计</button>
+  <button 
+  catchtap='myquit'
+  class="top-btn {{selected2 ? 'top-btn-selected' : ''}}">签退统计</button>
+ </view>
+ <!--
+ <view class="bar">
+  <view class="btns">
+   <button class="btn">筛选</button>
+   <button class="btn" bindtap="sum" style="border-right-color:rgb(238, 238, 238);color:black;">统计</button>
+  </view>
+  <view class="list-type"></view>
+ </view>
+ -->
+
+ <!-- ////////  签到统计  ////////-->
+<view wx:if='{{selected1==true}}' class="sq">
+ <view class="card">
+  <view class="title">活动标题</view>
+  <view class="data">
+   <view class="sum">
+    <text class="label">已签到</text>
+    <text class="sum-data">28</text>
+   </view>
+   <view class="detail">
+     <view class="de-sum">
+      <view>
+      <text class="de-data2">● </text><text class="label">有效签到</text><text class="de-data2">16</text>
+      </view>
+      <view>
+      <text class="de-data1">● </text><text class="label">迟到签到</text><text class="de-data1">12</text>
+      </view>
+     </view>
+     <view class="curve">
+     </view>
+   </view>
+  </view>
+  <view class="time">
+   <view style="margin-left:20%">更新时间：08/03 11:39</view>
+   <button class="btn" style="margin-left:10rpx;color:blue">刷新</button>
+  </view>
+ </view>
+ <!--/////下方更细分的统计图///////-->
+ <view class="card2">
+  <!--/////选择按钮///////-->
+  <view class="comment-btn">
+        <button 
+            type="plain"
+            wx:for="{{datatagList}}" 
+            wx:for-item="item" 
+            wx:key="item.index"  
+            bindtap="checkboxChange" 
+            data-value="{{item.value}}" 
+            data-index="{{index}}"  
+            checked="{{item.selected}}"
+            class="btns {{item.selected ? 'btns-selected' : ''}}" >
+            {{item.title}}
+        </button>
+  </view>
+  <!--/////统计图信息///////-->
+  <view class="data-title" wx:for='{{tag}}'>签到人-{{item.value}}分布图</view>
+  <view class="curve">这里是统计图</view>
+  <view class="tags"
+  wx:for='{{tag}}' 
+  wx:for-item="item2">
+   <view class="tag" wx:for='{{item2.detail}}' wx:for-item="item3">
+      <text class="de-data1">● </text><text class="label">{{item3}}</text><text class="de-data1" style="font-size:32rpx;">16</text>
+   </view>
+  </view>
+ </view>
+  <!--/////简化的按钮///////-->
+ <navigator url="/pages/created-sign/statistics/list" class="nav" hover-class="nav-hov">
+ <view>查看签到名单 >></view>
+ </navigator>
+</view>
+</view>
+
+<!-- ////////  签退统计  ////////-->
+<view wx:if='{{selected2==true}}' class="sq">
+ <view class="card">
+  <view class="title">活动标题</view>
+  <view class="data">
+   <view class="sum">
+    <text class="label">已签退</text>
+    <text class="sum-data">26</text>
+   </view>
+   <view class="detail">
+     <view class="de-sum">
+      <view>
+      <text class="de-data2">● </text><text class="label">有效签退</text><text class="de-data2">14</text>
+      </view>
+      <view>
+      <text class="de-data1">● </text><text class="label">迟到签退</text><text class="de-data1">12</text>
+      </view>
+     </view>
+     <view class="curve">
+     </view>
+   </view>
+  </view>
+  <view class="time">
+   <view style="margin-left:20%">更新时间：08/03 11:39</view>
+   <button class="btn" style="margin-left:10rpx;color:blue">刷新</button>
+  </view>
+ </view>
+ <navigator url="/pages/created-sign/statistics/list" class="nav" hover-class="nav-hov">
+ <view style="text-align:center">查看签退名单 >></view>
+ </navigator>
+</view>

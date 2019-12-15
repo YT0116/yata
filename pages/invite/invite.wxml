@@ -1,0 +1,101 @@
+<!--pages/invite/invite.wxml    添加签到人/////////////////-->
+<view class='invite-whole'>
+ <view class='lable'>请选择签到需确认的个人信息</view>
+<!--  ////////    多选按钮       ///////  -->
+ <view class="comment-btn">
+        <button 
+            wx:for="{{studentCommentList}}" 
+            wx:for-item="item" 
+            wx:key="item.index"  
+            bindtap="checkboxChange" 
+            data-value="{{item.value}}" 
+            data-index="{{index}}"  
+            checked="{{item.selected}}"
+            class="btn {{item.selected ? 'btn-selected' : ''}}" >
+            {{item.title}}
+        </button>
+        <button class='btn' style='width:50rpx;' catchtap='addbtn' hover-class='btn-selected'>+</button>
+        <modal hidden="{{hiddenmodalput}}" title="请输入自定义信息" confirm-text="完成" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+    <input bindinput='newstu' type='text'placeholder="请输入内容" auto-focus/>
+</modal>
+ </view>
+
+ <view class='div-line'></view>
+ <!--  ////////    签到人卡片        ///////  -->
+ 
+ <view class='lable' style='margin-top:30rpx;'>签到示例（活动现场由签到人扫码填写）</view>
+ <view class="card">
+  <image src='/img/user.png' class="usr"></image>
+  <text style="align-self:center; font-size:13px; color:grey; margin-top:15rpx;">签到人昵称</text>
+  <view
+        wx:for="{{cardvalue}}"
+        wx:for-item="item" 
+        wx:key="item.index"
+        class="carditem">
+        <view style="height:20rpx;"></view>
+         <view class='lable'>{{item}}</view>
+         <view class='div-line' style='margin-top:20rpx;width:100%'></view>
+         <view style="height:30rpx;"></view>
+  </view>
+ </view>
+
+
+
+ <!-- 旧版卡片
+ <view
+      wx:for="{{newcard}}"
+      wx:for-item="item" 
+      wx:key="item.index"
+      class='card'>
+     <view style='display:flex;'>
+      <image src='/img/user.png' style='height:130rpx;width:130rpx;margin-top:50rpx;margin-left:30rpx;opacity:0.6'></image>
+      <view class='info'>
+       <view
+        wx:for="{{cardvalue}}"
+        wx:for-item="item" 
+        wx:key="item.index">
+         <view class='lable' style='margin-top:20rpx;'>{{item}}</view>
+         <view class='div-line' style='margin-top:20rpx;width:80%'></view>
+       </view>
+      </view>
+     </view>
+  <view class='share'>
+      <view style='margin-top:20rpx;'>
+      <checkbox></checkbox>
+      <text class='lable'>授权TA协助添加</text>
+      </view>
+      <button class='share-btn' open-type='share'>转发</button>
+  </view>
+ </view>
+ <view class='add-card' catchtap='addcard'>
+   <text style='font-size:40rpx;color:grey;'>+</text>
+   <text style='font-size:32rpx;color:grey;margin-left:15rpx;'> 添加签到人</text>
+ </view>
+
+ -->
+
+<!--  ////////    button        ///////  -->
+<!--
+<view style='display:flex;flex-direction: column;'>
+ <view class='bottom-btn'>
+   <button plain='true' class='op-btn1' type='primary' catchtap='save'>保存</button>
+   <view style='width:40rpx;'></view>
+   <navigator class='op-btn' url="/pages/invite-scan/invite-scan">
+   <button type='primary' class='op-btn'>生成动态签到码</button>
+   </navigator>
+ </view>
+ -->
+
+ 
+  <button type='primary' class="next-btn" catchtap="nextstep">完成</button>
+ 
+ <!--  ////////    copyright claim        ///////  -->
+ <!--
+ <text style='font-size:11px;color:grey;margin-top: 40rpx;'>保存后可在 我的-我创建的签到 查看</text>
+ <view class='invite-claim'>
+   <text style='margin-top:20rpx;'>YaTa科技</text>
+   <text style='font-size:11px;color: grey;margin-top:20rpx;'>版权所有 © 2019 yata.com</text>
+ </view>
+</view>
+-->
+</view>

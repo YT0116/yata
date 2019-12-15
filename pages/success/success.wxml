@@ -1,0 +1,14 @@
+<!--pages/success/success.wxml-->
+<!--/////////     签到成功页面       /////////-->
+<view class='s-whole'>
+  <icon type='success' size='50' style='margin-top:80rpx;'></icon>
+  <text style='margin-top:30rpx;'>签到成功</text>
+  <text style='font-size:11px;color:grey;margin-top:30rpx;'>签到时间：{{year}}-{{mon}}-{{day}} {{hour}}:{{min}}</text>
+  <navigator url='/pages/home/home' class='s-but' hover-class='hov'>
+  <button plain='true' type='primary' class='s-but'>回到首页</button>
+  </navigator>
+  <view class='claim'>
+  <text>YaTa科技</text>
+  <text style='font-size:11px;color: grey;margin-top: 40rpx;'>版权所有 © 2019 yata.com</text>
+ </view>
+</view>

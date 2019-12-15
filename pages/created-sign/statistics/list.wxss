@@ -1,0 +1,240 @@
+/* pages/created-sign/statistics/list.wxss */
+.li-whole{
+  display: flex;
+  flex-direction: column;
+  padding: auto;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+}
+.tar{
+  width: 100%;
+  display: flex;
+}
+.top-btn{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  vertical-align: middle;
+  border-radius: 0;
+  background-color: white;
+  color: #797979;
+  font-size: 32rpx;
+  border: 0px white solid;
+  border-top: 1rpx solid #E4E4E4;
+}
+.top-btn-selected{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  vertical-align: middle;
+  border-radius: 0;
+  font-size: 32rpx;
+  background-color: #E4E4E4;
+  color: black;
+  border: 0px white solid;
+}
+.top-btn::after{
+  border-radius: 0;
+  border: none; 
+}
+.top-btn-selected::after{
+  border-radius: 0;
+  border: none; 
+}
+.bar{
+  border-top: 4rpx solid #E4E4E4;
+  height: 60rpx;
+  width: 100%;
+  line-height: 60rpx;
+  background-color: white;
+  vertical-align: middle;
+  display: flex;
+}
+.btns{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+.btn{
+  height: 70rpx;
+  width: 180rpx;
+  font-size:31rpx;
+  color: green;
+  line-height: 70rpx;
+  vertical-align: middle;
+  background-color: rgba(255, 255, 255,0);  /*透明按钮*/
+  border: 0px white solid;
+  border-radius: 0;
+}
+.btn:after{ 
+    border: none; 
+}
+.sq{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.de-data1{
+  font-size: 34rpx;
+  color: plum;
+  margin-left: 8rpx;
+}
+.de-data2{
+  font-size: 34rpx;
+  color: green;
+  margin-left: 8rpx;
+}
+.label{
+  font-size: 31rpx;
+  color: #797979;
+}
+.time{
+  height: 60rpx;
+  width: 100%;
+  line-height: 60rpx;
+  background-color: white;
+  vertical-align: middle;
+  font-size: 31rpx;
+  color: #adadad;
+  text-align: center;
+}
+.list{
+  display: flex;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 20rpx;
+  border: 1px solid #cac7c7;
+  border-radius: 15rpx;
+  background-color: white;
+}
+.tr{
+  display: flex;
+  flex-direction: column;
+}
+.td{
+  display: flex;
+}
+.info{
+  font-size: 32rpx;
+  color: #797979;
+  width: 44%;
+  margin-left: 8%;
+  display: flex;
+  flex-direction: column;
+}
+.other-info{
+  width: 30%;
+  margin-left: 10%;
+  font-size: 32rpx;
+  color: #797979;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.tag{
+  width: 100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  vertical-align: middle;
+  border-radius: 35rpx;
+  font-size: 32rpx;
+  background-color: #F5F5F5;
+}
+.gif{
+  width:50rpx;
+  height:50rpx;
+  line-height: 70rpx;
+  vertical-align: middle;
+}
+.div-line{
+  margin-top: 25rpx;
+  height: 1rpx;
+  width: 100%;
+  border-bottom: 1rpx rgb(189, 186, 186) solid;
+}
+/*   ////////  底部弹框   /////// */
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.2;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+
+.commodity_attr_box {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background: #fff;
+  padding-top: 20rpx;
+}
+
+.com_label{
+  text-align: left;
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #797979;
+}
+
+.choose{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.choices{
+  display: flex;
+  width: 100%;
+  margin: 30rpx;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.item{
+  width: 25%;
+  height: 80rpx;
+  margin-left: 20rpx;
+  font-size: 32rpx;
+  color: #797979;
+  text-align: left;
+}
+/* checkbox  */
+/* 未选中的 背景样式 */
+checkbox .wx-checkbox-input{
+border-radius: 50%;/* 圆角 */
+width: 35rpx; /* 背景的宽 */
+height: 35rpx; /* 背景的高 */
+margin-bottom:10rpx;
+}
+
+/* 选中后的样式 （可根据设计稿需求自己修改） */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+background: green;
+border-color: green;
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+border-radius: 50%;
+width: 40rpx;
+height: 40rpx;
+line-height: 40rpx;
+text-align: center;
+font-size: 26rpx; /* 对勾大小 28rpx */
+color: #fff; /* 对勾颜色 白色 */
+background: transparent;
+transform: translate(-50%, -50%) scale(1);
+-webkit-transform: translate(-50%, -50%) scale(1);
+}
+/*////////////////////////////////*/

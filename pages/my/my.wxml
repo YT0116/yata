@@ -1,0 +1,56 @@
+<!--pages/my/my.wxml-->
+<!--/////////     我的       /////////-->
+<view class='my-whole'>
+<!--  ////////    head       ///////  -->
+ <view class='head'>
+   <view class='circle-1'>
+    <view class='circle-2'>
+      <image src="{{userInfo.avatarUrl}}" class='h-img'></image>
+    </view>
+   </view>
+   <text style='margin-top:40rpx;font-size:30rpx;'>{{userInfo.nickName}}</text>
+ </view>
+ <view class='table'>
+  <navigator class='tr' url='/pages/history/history'>
+  <view style="width:140rpx;">
+   <image src='/img/record.png' class='img' style="width:60rpx;" mode='widthFix'></image>
+  </view>
+   <text class='tr-text'>我的签到记录</text>
+   <image src='/img/arrow-r.png' class='img-arrow' mode='widthFix'></image>
+  </navigator>
+  <view class='div-line'></view>
+  <navigator class='tr' url='/pages/created-sign/created-sign'>
+  <view style="width:140rpx;">
+   <image src='/img/history.png' class='img' mode='widthFix'></image>
+  </view>
+   <text class='tr-text'>我创建的签到</text>
+   <image src='/img/arrow-r.png' class='img-arrow' mode='widthFix'></image>
+  </navigator>
+  <view class='div-line'></view>
+  <view class='tr' bindtap="toTelBook">
+  <view style="width:140rpx;">
+   <image src='/img/tel.png' class='img' mode='widthFix'></image>
+  </view>
+   <text class='tr-text'>通讯录</text>
+   <image src='/img/arrow-r.png' class='img-arrow' mode='widthFix'></image>
+  </view>
+  <view class='div-line' style="border-bottom: 8rpx #F5F5F5 solid;"></view>
+  
+  <navigator class='tr' url='/pages/about/about'>
+  <view style="width:140rpx;">
+   <image src='/img/heart.png' class='img' mode='widthFix'></image>
+  </view>
+   <text class='tr-text'>关于YaTa</text>
+   <image src='/img/arrow-r.png' class='img-arrow' mode='widthFix'></image>
+  </navigator>
+ </view>
+
+
+
+ 
+<!--  ////////    copyright claim        ///////  -->
+ <view class='claim'>
+  <text>YaTa科技</text>
+  <text style='font-size:11px;color: grey;margin-top: 40rpx;'>版权所有 © 2019 yata.com</text>
+ </view>
+</view>

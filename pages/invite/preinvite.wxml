@@ -1,0 +1,59 @@
+<!--pages/invite/preinvite.wxml-->
+<!--       预设签到人           -->
+<view class='invite-whole'>
+ <view class='lable'>请选择签到需确认的个人信息</view>
+<!--  ////////    多选按钮       ///////  -->
+ <view class="comment-btn">
+        <button 
+            wx:for="{{studentCommentList}}" 
+            wx:for-item="item" 
+            wx:key="item.index"  
+            bindtap="checkboxChange" 
+            data-value="{{item.value}}" 
+            data-index="{{index}}"  
+            checked="{{item.selected}}"
+            class="btn {{item.selected ? 'btn-selected' : ''}}" >
+            {{item.title}}
+        </button>
+        <button class='btn' style='width:50rpx;' catchtap='addbtn' hover-class='btn-selected'>+</button>
+        <modal hidden="{{hiddenmodalput}}" title="请输入自定义信息" confirm-text="完成" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+    <input bindinput='newstu' type='text'placeholder="请输入内容" auto-focus/>
+</modal>
+ </view>
+
+ <view class='div-line'></view>
+ <!--  ////////    签到人卡片        ///////  -->
+ 
+ <view class='lable' style='margin-top:30rpx;'>签到示例</view>
+ <view class="card">
+  <view class="pics">
+  <view style="width:10%;"></view>
+  <image src='/img/user.png' class="usr"></image>
+  <view>
+  <button open-type="share" class="share-btn">
+    <image src="/img/share.png" class="shareicon"></image>
+  </button>
+  </view>
+  </view>
+  <text style="align-self:center; font-size:13px; color:grey; margin-top:15rpx;">签到人昵称</text>
+  <view
+        wx:for="{{cardvalue}}"
+        wx:for-item="item" 
+        wx:key="item.index"
+        class="carditem">
+        <view style="height:20rpx;"></view>
+         <view class='lable'>{{item}}</view>
+         <view class='div-line' style='margin-top:20rpx;width:100%'></view>
+         <view style="height:30rpx;"></view>
+  </view>
+  <button open-type="share" class="share-btn2" style="align-self:center; font-size:32rpx; color:green; margin-top:20rpx;">转发签到人提前填写</button>
+ </view>
+
+<!--////说明文字/////-->
+ <view class="info">
+  <icon type="info" color="grey" size="13"></icon>
+  <text class="invite-claim">转发指定签到人/群后即可完成活动创建，在“我创建的签到-统计”中就能看到预填的签到人名单啦</text>
+ </view>
+ 
+  <button type='primary' class="next-btn" catchtap="nextstep">下一步（2/2）</button>
+</view>

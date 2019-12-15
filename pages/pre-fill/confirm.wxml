@@ -1,0 +1,14 @@
+<view class="appwhole">
+ <icon type="success" size="60" style="margin-top: 17%;"></icon>
+ <text class="title">信息已确认</text>
+ <text class="label" style="margin-top: 40rpx;">谢谢你的配合~</text>
+ <text class="label">活动当天只需扫码即可1秒签到哦</text>
+ <navigator url="/pages/new/new" class='btn' hover-class='hov'>
+<button class='btn' type='primary' plain='true'>点击创建自己的活动签到</button>
+</navigator>
+ <!--  claim   -->
+ <view class="claim">
+  <text>YaTa科技</text>
+  <text style='font-size:11px;color: grey;margin-top: 40rpx;'>版权所有 © 2019 yata.com</text>
+ </view>
+</view>

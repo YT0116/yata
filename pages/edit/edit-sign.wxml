@@ -1,0 +1,35 @@
+<!--pages/sign/sign.wxml-->
+<!--/////////     签到页面       /////////-->
+<view class="sign-whole">
+    <text class="cs-l">{{title}}</text>
+    <text class="cs-t">签到时间：{{year}}年{{month}}月{{day}}日 {{hour}}:{{min}}</text>
+
+ <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+ </view>
+
+<!--/////////     输入信息     /////////-->
+<table>
+<view wx:for='{{cardvalue}}' class='infor-table'>
+  <view class="tr">
+   <text class='td'>{{item}}</text>
+   <input></input>
+  </view>
+  <view class='div-line'></view>
+</view>
+</table>
+
+<navigator url='{{path}}' class='sign-button' hover-class='hov'>
+<button class='sign-button' type='primary' bindtap='success_sign'>更新签到信息</button>
+</navigator>
+
+<!--//////////////  版权声明  //////////////////-->
+ <view class='claim'>
+  <text>YaTa科技</text>
+  <text style='font-size:11px;color: grey;margin-top: 40rpx;'>版权所有 © 2019 yata.com</text>
+ </view>
+</view>

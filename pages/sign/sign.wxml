@@ -1,0 +1,70 @@
+<!--pages/sign/sign.wxml-->
+<!--/////////     签到页面       /////////-->
+<view class="sign-whole">
+ <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+ </view>
+
+<!--/////////     输入信息     /////////-->
+<table>
+<view wx:for='{{cardvalue}}' class='infor-table'>
+  <view class="tr">
+   <text class='td'>{{item}}</text>
+   <input></input>
+  </view>
+  <view class='div-line'></view>
+</view>
+</table>
+
+<navigator url='{{path}}' class='sign-button' hover-class='hov'>
+<button class='sign-button' type='primary' bindtap='success_sign'>确认签到</button>
+</navigator>
+<!--
+<modal hidden="{{hiddenmodal}}" title="你已签到成功" confirm-text="知道了"></modal>
+-->
+<!--
+<modal hidden="{{hidden}}" title="你已签到成功" confirm-text="知道了" bindconfirm="confirm" no-cancel="true">
+    <text style='align-self:center;text-align:center'>请勿重复签到</text>
+</modal> 
+-->
+
+<!--//////////////   签到失败弹框     //////////////////-->
+<button class='sign-button' style="color:black;" bindtap='showModal'>失败弹框测试按钮</button>
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+ <text>你不在参与名单，请选择：</text>
+ <view class="choice">
+  <view class="item">
+    <checkbox bindtap="checkself" checked="{{self}}"></checkbox>
+     <view style="width:80%;margin-left:10rpx;">我本人参与活动，请将我补充到名单</view>
+  </view>
+  <view class="item">
+    <checkbox checked="{{other}}" bindtap="checkother" ></checkbox>
+     <view style="width:80%;margin-left:10rpx;">
+     我代替别人参与此活动
+     <view wx:if='{{other}}'>
+     <input 
+     placeholder="请输入代替人姓名" 
+     placeholder-style="color:#cac7c7;text-align:center;"
+     style="margin-top:30rpx;"></input>
+     <view class="div-line"></view>
+     </view>
+     </view>
+  </view>
+ </view>
+ <view class="div-line"></view>
+ <navigator url='{{path}}' class='confirm-button' hover-class='hov'>
+ <button class="confirm-btn" bindtap="confirm" disabled="{{notchosen}}">确定</button>
+ </navigator>
+</view>
+
+<!--//////////////  版权声明  //////////////////-->
+ <view class='claim'>
+  <text>YaTa科技</text>
+  <text style='font-size:11px;color: grey;margin-top: 40rpx;'>版权所有 © 2019 yata.com</text>
+ </view>
+</view>

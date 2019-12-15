@@ -1,0 +1,50 @@
+<!--pages/history/history.wxml-->
+<view class='his-whole'>
+ <view class='tar'>
+  <button 
+  catchtap='mysign'
+  class="top-btn {{selected1 ? 'top-btn-selected' : ''}}">我的签到</button>
+  <button 
+  catchtap='myquit'
+  class="top-btn {{selected2 ? 'top-btn-selected' : ''}}">我的签退</button>
+ </view>
+
+ <view wx:if='{{selected1==true}}' class='sign-his'>
+ <!--/////   没有签到历史   /////-->
+  <view wx:if='{{signHistory.length==0}}' class='nohistory'>
+   <image src='/img/hi.png' class='hi'></image>
+   <text style='color:grey;font-size:12px;margin-top: 30rpx;'>别骗自己了，你还没签到过</text>
+  </view>
+<!--/////   有签到历史    /////-->
+ <navigator wx:for='{{signHistory}}' class="his-nav" url="/pages/edit/edit-sign">
+   <view class="history-card">
+    <text class="cs-l">{{item.title}}</text>
+    <text class="cs-t">创建时间：{{item.year}}年{{item.month}}月{{item.day}}日 {{item.hour}}:{{item.min}}</text>
+   </view>
+   <text class="arrow-text">编辑</text><image class="img" src="/img/arrow-r.png"></image>
+  </navigator>
+ </view>
+
+ <view wx:if='{{selected2==true}}' class='quit-his'>
+ <!--/////    没有签退历史    /////-->
+  <view wx:if='{{quitHistory.length==0}}' class='nohistory'>
+   <image src='/img/hi.png' class='hi'></image>
+   <text style='color:grey;font-size:12px;margin-top: 30rpx;'>暂无签退记录</text>
+  </view>
+ <!--/////    有签退历史    /////-->
+ <navigator wx:for='{{quitHistory}}' class="his-nav" url="/pages/edit/edit-sign">
+  <view class="history-card">
+    <text class="cs-l">{{item.title}}</text>
+    <text class="cs-t">创建时间：{{item.year}}年{{item.month}}月{{item.day}}日 {{item.hour}}:{{item.min}}</text>
+  </view>
+   <text class="arrow-text">编辑</text><image class="img" src="/img/arrow-r.png"></image>
+</navigator>
+ </view>
+
+
+
+ <view class='claim'>
+  <text>YaTa科技</text>
+  <text style='font-size:11px;color: grey;margin-top: 40rpx;'>版权所有 © 2019 yata.com</text>
+ </view>
+</view>

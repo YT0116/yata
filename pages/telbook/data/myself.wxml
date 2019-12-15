@@ -1,0 +1,66 @@
+<!--pages/telbook/fill.wxml-->
+<view class="fill-whole">
+ <view class="tr" style="margin-top: 25rpx;">
+  <view class="td">部门</view>
+  <input class="input" placeholder="{{datas.bumen.name}}"></input>
+ </view>
+ <view class="divline"></view>
+ <view class="tr">
+  <view class="td">子部门</view>
+  <input class="input" placeholder="{{datas.bumen.child}}"></input>
+ </view>
+ <view class="divline"></view>
+
+ <view class="tr" style="margin-top: 25rpx;">
+  <view class="td">姓名</view>
+  <input class="input" placeholder="{{datas.name}}"></input>
+ </view>
+ <view class="divline"></view>
+ <view class="tr">
+  <view class="td">性别</view>
+  <picker bindchange="bindPickerChange1" value="{{sexindex}}" range="{{sexs}}">
+    <view class="picker">{{datas.sex}}</view>
+   </picker>
+   <image src='/img/arrow-r.png' class='img-arrow' mode='widthFix'></image>
+ </view>
+ <view class="divline"></view>
+ <view class="tr">
+  <view class="td">学院</view>
+  <picker bindchange="bindPickerChange2" value="{{colindex}}" range="{{colleges}}">
+    <view class="picker">{{datas.college}}</view>
+   </picker>
+   <image src='/img/arrow-r.png' class='img-arrow' mode='widthFix'></image>
+ </view>
+ <view class="divline"></view>
+ <view class="tr">
+  <view class="td">专业</view>
+  <input class="input" placeholder="{{datas.major}}"></input>
+ </view>
+ <view class="divline"></view>
+ <view class="tr">
+  <view class="td">学号</view>
+  <input class="input" placeholder="{{datas.stuid}}"></input>
+ </view>
+ <view class="divline"></view>
+ <view class="tr">
+  <view class="td">学院</view>
+  <picker bindchange="bindPickerChange3" value="{{sclindex}}" range="{{schools}}">
+    <view class="picker">{{datas.school}}</view>
+   </picker>
+   <image src='/img/arrow-r.png' class='img-arrow' mode='widthFix'></image>
+ </view>
+ <view class="divline"></view>
+
+ <view class="tr" style="margin-top: 25rpx;">
+  <view class="td">手机号</view>
+  <input class="input" placeholder="{{datas.tel}}"></input>
+ </view>
+ <view class="divline"></view>
+ <view class="tr">
+  <view class="td">邮箱</view>
+  <input class="input" placeholder="{{datas.email}}"></input>
+ </view>
+ <view class="divline"></view>
+
+<button type='primary' class="btn" catchtap="nextstep">保存</button>
+</view>

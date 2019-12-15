@@ -1,0 +1,30 @@
+/* pages/pre-fill/confirm.wxss */
+.title{
+  text-align: center;
+  font-size: 44rpx;
+  margin-left: 0;
+  width: 100%;
+  margin-top: 50rpx;
+}
+
+.label{
+  text-align: center;
+  width: 100%;
+  font-size: 13px;
+  color: grey;
+}
+
+/*////////            按钮            ///////*/
+.btn{
+  line-height: 90rpx;
+  height: 90rpx;
+  color: green;
+  vertical-align: middle;
+  font-size: 36rpx;
+  width: 95%;
+  margin-top: 40rpx;
+  border-radius: 8rpx;
+}
+.hov{
+  background-color: white;
+}
