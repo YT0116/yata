@@ -1,0 +1,89 @@
+<!--pages/mine/mine.wxml-->
+<view class="container_1">
+
+<!--名片-->
+ <view class="card">
+  <!--没签到没认证通讯录-->
+  <view wx:if="{{!hasSignIn&&!hasJoin}}" class="userInfo">
+   <view class="userinfo-avatar">
+    <open-data type="userAvatarUrl"></open-data>
+   </view> 
+   <open-data type="userNickName"></open-data>
+   <button class="btn1" type="primary" bindtap="toJoin" style="margin-top:30rpx;height:60rpx;font-size:80%">加入组织</button>
+  </view>
+  <!--已签到没认证通讯录-->
+
+  <!--已认证通讯录-->
+  <view wx:if="{{hasJoin}}" class="userInfo_Join">
+   <view class="card_left">
+    <view class="userinfo-avatar">
+     <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <open-data type="userNickName"></open-data>
+   </view>
+   <view class="card_right">
+    <view class="user_info_line">
+     <view>
+      <text style="font-weight:bold;font-size:40rpx">{{userInfo.name}}</text>
+      <image src="/image/nan.png" style="width:30rpx;height:30rpx;margin-left:15rpx;"></image>
+     </view>
+     <view class="duty">部长</view>
+    </view>
+    <view class="user_text">
+     <text>{{userInfo.depmt}}</text>
+     <text style="margin-left:30rpx">{{userInfo.depmtSub}}</text>
+    </view>
+    <view class="user_text">{{userInfo.college}}</view>
+    <view style="  display: flex;flex-direction:row; justify-content: space-between;">
+     <text class="user_text">{{userInfo.tel}}</text>
+     <image class="icon" src="/image/you.png" bindtap="more"></image>
+    </view>
+   </view>
+  </view>
+
+ </view>
+
+ <!--菜单-->
+ <view class="menu">
+  <!--通讯录-->
+  <view class="bar">
+   <view class="bar_left">
+    <image src="/image/tel.png" class="icon"></image>
+    <text class="bar_text">通讯录</text>
+   </view>
+   <view class="bar_right" >
+    <image src="/image/you_b.png" class="icon_right" bindtap="toTel"></image>
+   </view>
+  </view>
+  <!--我的任务-->
+  <view class="bar">
+   <view class="bar_left">
+    <image src="/image/renwu.png" class="icon"></image>
+    <text class="bar_text">我的任务</text>
+   </view>
+   <view class="bar_right">
+    <image src="/image/you_b.png" class="icon_right"></image>
+   </view>
+  </view>
+  <!--帮助与反馈-->
+  <view class="bar">
+   <view class="bar_left">
+    <image src="/image/bangzhu.png" class="icon"></image>
+    <text class="bar_text">帮助与反馈</text>
+   </view>
+   <view class="bar_right">
+    <image src="/image/you_b.png" class="icon_right"></image>
+   </view>
+  </view>
+  <!--关于YaTa-->
+  <view class="bar">
+  <view class="bar_left">
+    <image src="/image/guanyu.png" class="icon"></image>
+    <text class="bar_text">关于YaTa</text>
+   </view>
+   <view class="bar_right">
+    <image src="/image/you_b.png" class="icon_right"></image>
+   </view>
+  </view>
+ </view>
+</view>

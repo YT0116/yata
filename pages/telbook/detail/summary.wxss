@@ -1,0 +1,98 @@
+/* pages/telbook/detail/summary.wxss */
+.fill-whole{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+}
+
+.selfinfo{
+  background-color: white;
+  height: 180rpx;
+  width: 100%;
+  margin-top: 20rpx;
+  display: flex;
+}
+.user-icon{
+  width: 80rpx;
+  height: 80rpx;
+  margin-left: 5%;
+  border-radius: 50%;
+  margin-top: 50rpx; /*selfinfo-height=180,(180-80)÷2*/
+}
+
+.infos{
+  width: 50%;
+  height: 180rpx;
+  text-align: left;
+  margin-left: 5%;
+  padding-top: 45rpx;
+}
+.myname{
+  font-size: 32rpx;
+  text-align: left;
+}
+.bumen{
+  font-size: 28rpx;
+  font-weight: 200;
+}
+.img-arrow{
+  position: absolute;
+  margin-top: 65rpx;
+  right: 8%;
+  width: 30rpx;
+}
+.tr{
+  display: flex;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  vertical-align: middle;
+  text-align: left;
+}
+.td{
+  font-size: 28rpx;
+  line-height: 90rpx;
+  vertical-align: middle;
+  margin-left: 7%;
+  width: 80rpx;
+  text-align: left;
+}
+.img{
+  margin-left: 7%;
+  width: 80rpx;
+}
+.data{
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  font-weight: 200;
+  width: 70%;
+}
+
+.btn-area{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  bottom: 0;
+  position: fixed;
+  margin-bottom:50rpx;
+  justify-content: space-around;
+}
+
+.btn{
+  width: 250rpx;
+  border-radius: 50rpx;
+}
+
+.selected{
+  width: 180rpx;
+  font-size:80%;
+  color:#c4c3c3;
+  margin-right:80rpx;
+ 
+}
+
+

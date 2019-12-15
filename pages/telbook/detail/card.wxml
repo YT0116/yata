@@ -1,0 +1,34 @@
+<!--pages/telbook/detail/card.wxml-->
+<view class="fill-whole">
+ <view class="card-back">
+   <view class="card">
+    
+ <view class="tr" style="margin-top:20rpx;">
+  <view class="td">
+    <image src="/image/users.png" class="user-icon"></image > 
+  </view>
+  <view class="td" style="margin-left:6%;">
+    <view class="myname">{{card.name}}</view>
+  </view>
+  <view class="img" style="margin-left:10rpx;">
+    <image class="img" src="{{card.sex.src}}"></image>
+  </view>
+  <view class="tag" style="background-color:{{card.position.color}}">{{card.position.name}}</view>
+ </view>
+ <view class="bumens">
+   <view class="data">{{card.bumen.name}}</view>
+   <view class="data">{{card.bumen.child}}</view>
+ </view>
+ <view class="infotext">
+   <view class="data">{{card.college}}</view>
+ </view>
+ <view class="infotext">
+   <view class="data">{{card.tel}}</view>
+   <view class="copy" bindtap="copy">复制</view>
+   <view class="more" bindtap="more">查看更多</view>
+ </view>
+   </view>
+   
+<!-- <button class='btn' type='primary' plain='true'>添加为微信好友</button> -->
+ </view>
+</view>

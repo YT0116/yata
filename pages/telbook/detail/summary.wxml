@@ -1,0 +1,35 @@
+<!--pages/telbook/detail/summary.wxml-->
+<view class="fill-whole">
+
+
+ 
+ <view class="tr" style="margin-top:20rpx;">
+  <view class="data">请在通讯录中选择签到人</view>
+  <view style="font-size:80%;color:#c4c3c3;">已选{{selectedListAll.length}}人</view>
+ </view>
+ <view class="divline"></view>
+
+<navigator 
+  bindtap="navbranch" 
+  wx:for='{{bumen}}' 
+  wx:for-item="item" 
+  wx:key="item.index" 
+  data-index="{{index}}" 
+  value='{{item.index}}'
+  style="width:100%">
+ <view class="tr">
+  <view class="td"><image class='img' style="height:90rpx;" src="/image/branch.png" mode='aspectFit'></image></view>
+  <view class="data">{{item.name}} ({{item.num}})</view>
+  <view wx:if="{{item.selected!=0}}" class="selected">已选{{item.selected.length}}人</view>
+  <image src='/image/arrow-r.png' style="margin-top:30rpx;" class='img-arrow' mode='widthFix' bindtap="viewcard"></image>
+ </view>
+ <view class="divline"></view>
+</navigator>
+
+<view class="btn-area">
+ <button form-type="reset" class="btn">清空</button>
+ <button form-type="submit" type="primary" class="btn" bindtap="confirm">确定</button>
+</view>
+
+
+</view>

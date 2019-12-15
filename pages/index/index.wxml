@@ -1,0 +1,109 @@
+<!--pages/index/index.wxml-->
+<view class="container-1">
+ 
+ <view class="header">
+  <!--提示登录-->
+  <view class="notifier_login">
+   <view class="login_left">
+    <image src="/image/tel.png" class="icon" style="margin-right:10rpx"></image>
+    <view class="login_text">如果你是研会成员，请尽快加入组织</view>
+   </view>
+   <view class="login_right">
+    <image src="/image/you.png" bindtap="toMine" style="width:30rpx;height:30rpx"></image>
+   </view>
+  </view>
+ </view>
+
+ <view class="body">
+  <!--我的任务-->
+  <view class="notifier_mission">
+
+   <view class="mission_title">
+    <view style="display:flex">
+     <image src="/image/renwu.png" class="icon"></image>
+     <text style="color:#09BB07;align-self:center;" >我的任务</text>
+    </view>
+    <view style="font-size:80%;align-self:center;">你有0个待办任务</view> 
+   </view>
+
+   <view class="mission_content">
+    <view style="font-size:80%;color:#8a8a8a;margin-left:30rpx;">任务来源</view>
+    <view class="misson_souce">
+     <image src="/image/quan.png" style="width: 50px;height:50px;align-self:center"></image>
+     <view class="btn1" bindtap="toMission">立即查看</view>
+    </view>
+   </view>
+
+  </view>
+
+  <!--参与活动-->
+  <view class="section">
+   <view class="section_title">
+    <image src="/image/canyu.png" class="icon"></image>
+    <text class="title_text" style="color:#453D68;">参与活动</text>
+   </view>
+   <view class="section_content">
+    <view class="activities" hover-class="act_hover" bindtap="toSignIn">
+     <text class="act_text">我要签到</text>
+     <image class="icon_1" src="/image/qiandao.png" ></image>
+    </view>
+    <view class="activities" hover-class="act_hover" bindtap="toSignUp">
+     <text class="act_text">活动报名</text>
+     <image class="icon_1" src="/image/baoming.png"></image>
+    </view>
+    <view class="activities" style="background-color:#E4E4E4">
+     <text style="color: #FFFFFF;font-size:75%;text-align:center;margin-bottom:20rpx;">更多功能\n拼命研发中</text>
+     <image class="icon_1" src="/image/banshou.png" ></image>
+    </view>
+   </view>
+  </view>
+
+  <!--创办活动-->
+  <view class="section" style="white-space: nowrap;">
+   <!--标题-->
+   <view class="section_title">
+    <image src="/image/chuangban.png" class="icon"></image>
+    <text class="title_text" style="color:#453D68">创办活动</text>
+   </view>
+   
+   <!--滚动窗口-->
+   <view class="scroll_box"> 
+    <scroll-view class="scroll-view_x" scroll-x style="width: auto;overflow:hidden;">
+
+     <view class="item_list" hover-class="act_hover" bindtap="ToLoan">
+      <view style="padding:30rpx">
+      <view class="act_top">
+       <text class="act_text" style="color:#B57BF4">人员借调</text>
+      </view>
+      <view class="act_bot"> 
+       <image class="icon_1" src="/image/jiediao.png"></image> 
+       <image src="/image/to.png" style="width: 50px; height: 50px"></image> 
+      </view>
+      </view>
+     </view>
+
+      <view class="item_list" hover-class="act_hover" bindtap="toSignIn">
+      <view style="padding:30rpx">
+      <view class="act_top">
+       <text class="act_text" style="color:#B57BF4">创建签到活动</text>
+      </view> 
+      <view class="act_bot"> 
+       <image class="icon_1" src="/image/qiandao.png"></image>
+       <image src="/image/to.png" style="width: 50px; height: 50px"></image> 
+      </view>
+      </view>
+     </view> 
+
+    </scroll-view>
+  </view>
+
+  </view>
+
+
+
+
+
+
+  </view>
+
+</view>

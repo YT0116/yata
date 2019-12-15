@@ -1,0 +1,39 @@
+<!--pages/telbook/telbook.wxml-->
+<view class="appwhole">
+ <view class="bk-title">{{booktitle}}</view>
+ <view class="welcome">欢迎你的加入</view>
+ <view><image class="user-icon" src="{{userInfo.avatarUrl}}"></image></view>
+ <view class="nickname">{{userInfo.nickName}}</view>
+ <view class="short-divline"></view>
+ <view class="tr">
+   <text class='td'>部门</text>
+   <picker mode="selector" bindchange="bindPickerChange" value="{{index}}" range="{{bumen}}" range-key="name">
+    <view class="picker">{{bumenname}}</view>
+   </picker>
+
+  </view>
+ <view class="short-divline"></view>
+ <view class="tr" wx:if='{{showChild}}'>
+   <text class='td'>子部门</text>
+   <picker  bindchange="bindPickerChange2" value="{{childindex}}" range="{{bumen[index].child}}">
+    <view class="picker">{{childname}}</view>
+   </picker>
+  </view>
+ <view wx:if='{{showChild}}' class="short-divline"></view>
+
+ 
+ <view class="tr" wx:if='{{showName}}' style="align-items:baseline">
+   <text class='td'>姓名</text>
+    <input bindinput="join" class="picker" placeholder="请输入姓名" style="margin-left:10rpx"></input>
+  </view>
+ <view wx:if='{{showName}}' class="short-divline"></view>
+
+ <button type='primary' class="btn" disabled="{{join}}" catchtap="nextstep">加入组织（1/2）</button>
+ 
+<!--  ////////    copyright claim        ///////  -->
+ <view class='claim'>
+  <text>YaTa科技</text>
+  <text style='font-size:11px;color: grey;margin-top: 40rpx;'>版权所有 © 2019 yata.com</text>
+ </view>
+</view>
+

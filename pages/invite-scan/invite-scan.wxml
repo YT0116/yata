@@ -1,0 +1,33 @@
+<!--////////    发起人预览二维码界面 有签退    ////////-->
+<view class="invite-whole">
+  <text class="lable">{{title}}</text>
+</view>
+
+<swiper indicator-dots="true" indicator-color="gainsboro" indicator-active-color="green" class="swiper" style="height:500rpx;">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item class="swiper-whole">
+      <view style="margin-top:0;font-size:34rpx;">
+      <text>请扫码</text><text style="color:{{item.color}};">{{item.text}}</text>
+      </view>
+      <image src="{{item.url}}" class="erweima"/>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="invite-whole">
+  <view class="refresh">
+  <text>二维码将自动</text>
+  <!--      点击“刷新”可以手动刷新         -->
+  <button class="refresh-btn">刷新</button>
+  </view>
+  <view class="divline" style="margin-top:13%;"></view>
+  <view class="switch-view">
+  <view class="switch-text">设置为动态码</view>
+  <switch class="switch" checked bindchange="switchChange"/>
+  </view>
+  <view class="divline"></view>
+  <view class="complete">
+   <checkbox class="tips" value="IsNotify" style="color:#bfbfbf">完成后将通过服务号通知所有签到人</checkbox>
+   <button type='primary' class="op-btn">完成</button>
+  </view>
+</view>
+

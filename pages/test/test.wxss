@@ -1,0 +1,35 @@
+/* pages/test/test.wxss */
+
+page{
+  background-color: gray
+}
+
+.scroll_box{
+width: 100%;
+height: 307rpx;
+overflow: hidden;
+padding: 20rpx;
+white-space: nowrap;
+}
+
+.item_list{
+width: 400rpx;
+height: auto;
+margin-right: 23rpx;
+display: inline-block;
+border: solid black;
+}
+
+.act_bot{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.icon_1{
+  width: 35px; 
+  height:35px;
+  align-self:center;
+}
+
+
