@@ -1,44 +1,7 @@
 {
   "pages": [
-  "pages/home/home",
-    "pages/telbook/data/myself",
-     
-      "pages/telbook/detail/summary",
-   
-    "pages/telbook/detail/mycard",
-    "pages/telbook/detail/card",
-    "pages/my/my",
-  
-    "pages/telbook/temp-name",
-    "pages/telbook/telbook",
-   
-    "pages/telbook/fill",
-    "pages/invite/preinvite",
-    "pages/invite/invite",
-    "pages/created-sign/created-sign",
-    "pages/history/history",
-    "pages/created-sign/pre-statistics/pre-list",
-    "pages/created-sign/pre-statistics/pre-statistics",
-    "pages/edit/edit-sign",
     "pages/index/index",
-    "pages/edit/edit",
-    "pages/invite-scan/invite-scan",
-    "pages/invite-scan/invite-scan-onlylogin",
-    "pages/sign/sign",
-    "pages/pre-fill/confirm",
-    "pages/pre-fill/pre-fill",
-    "pages/au-fill/au-fill",
-    "pages/created-sign/statistics/statistics",
-    "pages/new/new",
-    "pages/created-sign/statistics/list",
-    "pages/success/success",
-    "pages/logs/logs",
-    "pages/about/about",
-    "pages/created-sign/nonecreated-sign",
-    "pages/unau-fill/unau-fill",
-    "pages/telbook/detail/branch",
-    "pages/telbook/data/others",
-    "pages/telbook/detail/search"
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -46,5 +9,6 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
+  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
