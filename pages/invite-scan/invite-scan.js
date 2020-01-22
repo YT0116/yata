@@ -1,30 +1,30 @@
-// pages/index/index.js
+// pages/invite-scan/invite-scan.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
-  },
-
-  toMine:function(){
-    wx.switchTab({
-      url: '../mine/mine',
-    })
-  },
-
-  toSignIn:function(){
-    wx.navigateTo({
-      url: '../sign-in/sign-in',
-    })
+    title:'活动标题',
+    imgUrls: [
+      {url:'/image/qiandao_1.png',
+      text:'签到',
+      color:'blue'},
+      {url:'/image/qiantui.png',
+      text:'签退',
+      color:'red'}
+    ],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function (e) {
+    console.log("接收的参数：" +e.title)
+    this.setData({
+      title: e.title
+    })
   },
 
   /**

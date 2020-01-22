@@ -1,0 +1,66 @@
+/* pages/telbook/fill.wxss */
+page {
+  background-color: #F5F5F5;
+}
+.fill-whole{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+}
+.tr{
+  display: flex;
+  width: 100%;
+  height: 90rpx;
+  background-color: white;
+  line-height: 90rpx;
+  vertical-align: middle;
+  text-align: left;
+}
+.td{
+  font-size: 28rpx;
+  line-height: 90rpx;
+  vertical-align: middle;
+  height: 100%;
+  width: 20%;
+  text-align: right;
+}
+.picker{
+  width: 100%;
+  color: grey;
+  font-size: 28rpx;
+  line-height: 90rpx;
+  vertical-align: middle;
+  height: 100%;
+  margin-left: 35rpx;
+  text-align: left;
+}
+.img-arrow{
+  position: absolute;
+  margin-top: 25rpx;
+  right: 8%;
+  width: 30rpx;
+}
+.input{
+  width: 40%;
+  font-size: 28rpx;
+  line-height: 90rpx;
+  vertical-align: middle;
+  height: 100%;
+  margin-left: 35rpx;
+  text-align: left;
+}
+.btn{
+  line-height: 90rpx;
+  height: 90rpx;
+  margin-top: 50rpx;
+  font-size: 34rpx;
+  text-align: center;
+  color: white;
+  vertical-align: middle;
+  width: 85%;
+  border: none;
+}

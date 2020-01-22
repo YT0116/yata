@@ -1,0 +1,45 @@
+<!--pages/telbook/fill.wxml-->
+<view class="fill-whole">
+ <view class="tr" style="margin-top: 25rpx;">
+  <view class="td">姓名</view>
+  <view class="input">{{data.name}}</view>
+ </view>
+ <view class="divline"></view>
+ <view class="tr">
+  <view class="td">性别</view>
+  <view class="input">{{data.sex}}</view>
+ </view>
+ <view class="divline"></view>
+ <view class="tr">
+  <view class="td">学院</view>
+  <view class="input">{{data.college}}</view>
+ </view>
+ <view class="divline"></view>
+ <view class="tr">
+  <view class="td">专业</view>
+  <view class="input">{{data.major}}</view>
+ </view>
+ <view class="divline"></view>
+ <view class="tr">
+  <view class="td">学号</view>
+  <view class="input">{{data.stuid}}</view>
+ </view>
+ <view class="divline"></view>
+ <view class="tr">
+  <view class="td">校区</view>
+  <view class="input">{{data.school}}</view>
+ </view>
+ <view class="divline"></view>
+
+ <view class="tr" style="margin-top: 25rpx;">
+  <view class="td">手机号</view>
+  <view class="input">{{data.tel}}</view>
+ </view>
+ <view class="divline"></view>
+ <view class="tr">
+  <view class="td">邮箱</view>
+  <view class="input">{{data.email}}</view>
+ </view>
+ <view class="divline"></view>
+
+</view>

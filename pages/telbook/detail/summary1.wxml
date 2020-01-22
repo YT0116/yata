@@ -1,0 +1,46 @@
+<!--pages/telbook/detail/summary.wxml-->
+<view class="fill-whole" bindtap="hideIns">
+<!--引导小黑框1 START-->
+ <view wx:if="{{hide1}}" class="instruct">
+  欢迎你~点这里看自己的信息
+ </view>
+ <!--引导小黑框 END-->
+ <view class="selfinfo" bindtap="mycard">
+  <open-data type="userAvatarUrl" class="user-icon"></open-data>
+  <view class="infos">
+    <open-data type="userNickName" class="myname">{{myname}}</open-data>
+    <view>
+    <text class="bumen">{{mybumen.bumen}}</text><text style="margin-left:20rpx;" class="bumen">{{mybumen.child}}</text>
+    </view>
+  </view>
+  <image src='/image/arrow-r.png' class='img-arrow' mode='widthFix'></image>
+ </view>
+
+
+<!--引导小黑框2 START-->
+ <view wx:if="{{hide2}}" class="instruct" style="top:260rpx;right:50rpx;left:auto">
+  列表可看每个部门成员信息
+ </view>
+ <!--引导小黑框2 END-->
+ <view class="tr" style="margin-top:20rpx;">
+  <view class="td" style="margin-left:6%;"><image class='img' style="margin-top:10rpx;" src="/image/tree.png" mode='widthFix'></image></view>
+  <view class="data">{{booktitle.name}} ({{booktitle.num}})</view>
+ </view>
+ <view class="divline"></view>
+
+<navigator 
+  bindtap="navbranch" 
+  wx:for='{{bumen}}' 
+  wx:for-item="item" 
+  wx:key="item.index" 
+  data-index="{{index}}" 
+  value='{{item.index}}'
+  style="width:100%">
+ <view class="tr">
+  <view class="td"><image class='img' style="height:90rpx;" src="/image/branch.png" mode='aspectFit'></image></view>
+  <view class="data">{{item.name}} ({{item.num}})</view>
+  <image src='/image/arrow-r.png' style="margin-top:30rpx;" class='img-arrow' mode='widthFix'></image>
+ </view>
+ <view class="divline"></view>
+</navigator>
+</view>

@@ -1,0 +1,76 @@
+<!--pages/telbook/detail/branch.wxml-->
+<view class="fill-whole">
+
+
+ <view class="tr" style="margin-top:20rpx">
+  <view class="td"><image class='img' style="height:90rpx;" src="/image/branch.png" mode='aspectFit'></image></view>
+  <view class="text">{{bumen[chose].name}} ({{bumen[chose].num}})</view>
+ </view>
+ <view class="divline"></view>
+
+
+<!--////////没有子部门，直接显示成员////////////-->
+<checkbox-group 
+wx:if='{{!bumen[chose].hasChild==true}}' 
+wx:for='{{bumen[chose].member}}' 
+wx:for-item="item2" 
+style="width:100%"
+bindchange="checkboxChange">
+  <view class="tr">
+  <view class="td" style="margin-left:13%"><checkbox wx:if='{{!isRead}}' value="{{item2.name}}"></checkbox></view>
+  <image class='uimg' style="height:90rpx;opacity: 0.5" src="/image/users.png" mode='aspectFit'></image>
+  <view class="data">
+   <text>{{item2.name}}</text>  
+   <!--如果是部长（2）或者副部长（3）就展示tag-->
+   <view wx:if='{{item2.level==2 || item2.level==3}}' class='tag' style="background-color:{{position[item2.level].color}}">{{position[item2.level].text}}</view>
+  </view>
+  
+  <image src='/image/arrow-r.png' style="margin-top:30rpx;" class='img-arrow' mode='widthFix'bindtap="viewcard"></image>
+ </view>
+ <view class="divline"></view>
+</checkbox-group>
+
+<!--////////有子部门，只显示子部门名，要点击才显示详细名单////////////-->
+ <view bindtap="showList"
+  wx:if='{{bumen[chose].hasChild==true}}' 
+  wx:for='{{bumen[chose].child}}' 
+  wx:for-item="item" 
+  data-index="{{index}}"
+  style="width:100%">
+   <view class="tr">
+    <view class="td" style="margin-left:13%"><image class='img' style="height:90rpx;opacity: 0.5" src="/image/branch.png" mode='aspectFit'></image></view>
+    <view class="text">{{item.name}} ({{item.num}})</view> 
+    <image src='/image/arrow-r.png' style="margin-top:30rpx;" class='img-arrow' mode='widthFix' ></image>
+  </view>
+ <view class="divline"></view>
+  <!--////////点击显示的详细名单////////////-->
+
+ <checkbox-group
+  wx:if='{{item.showlist==true}}'
+  wx:for='{{item.member}}' 
+  wx:for-item="item3" 
+  style="width:100%"
+  bindchange="checkboxChange"
+  >
+  <view class="tr">
+  <view class="td" style="margin-left:13%"><checkbox wx:if='{{!isRead}}' value="{{item3.name}}"></checkbox></view>
+  <image class='uimg' style="height:90rpx;opacity: 0.5" src="/image/users.png" mode='aspectFit'></image>
+  <view class="data">
+    <text>{{item3.name}}</text>  
+   <!--如果是部长（2）或者副部长（3）就展示tag-->
+    <view wx:if='{{item3.level==2 || item3.level==3}}' class='tag' style="background-color:{{position[item3.level].color}}">{{position[item3.level].text}}</view>
+  </view> 
+  <image src='/image/arrow-r.png' style="margin-top:30rpx;" class='img-arrow' mode='widthFix' bindtap="viewcard"></image>
+ </view>
+ <view class="divline"></view>
+</checkbox-group>
+
+</view>
+
+<view wx:if='{{!isRead}}' class="btn-area">
+ <button form-type="reset" class="btn">清空</button>
+ <button form-type="submit" type="primary" class="btn" bindtap="confirm">确定</button>
+</view>
+
+
+</view>

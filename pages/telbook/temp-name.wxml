@@ -1,0 +1,23 @@
+<!--pages/telbook/temp-name.wxml-->
+<view class="appwhole">
+ <view class="bk-title">{{booktitle}}</view>
+ <view class="welcome">欢迎你的加入</view>
+ <view><image class="user-icon" src="{{userInfo.avatarUrl}}"></image></view>
+ <view class="nickname">{{userInfo.nickName}}</view>
+ <view class="short-divline"></view>
+ <view class="tr" style="align-items:baseline">
+   <text class='td'>姓名</text>
+    <input bindinput="join" class="picker" placeholder="请输入完整的姓名" style="margin-left:10rpx" maxlength='10'></input>
+  </view>
+ <view class="short-divline"></view>
+
+ <button type='primary' class="btn" disabled="{{join}}" catchtap="nextstep">加入组织</button>
+ 
+<!--  ////////    copyright claim        ///////  -->
+ <view class='claim'>
+  <text>YaTa科技</text>
+  <text style='font-size:11px;color: grey;margin-top: 40rpx;'>版权所有 © 2019 yata.com</text>
+ </view>
+</view>
+
+

@@ -1,0 +1,25 @@
+<!--pages/assign/assign.wxml-->
+<view class="container">
+
+ <view class="head">
+
+  <view class="icon_outer">
+   <view class="icon_inner">
+    <image class="icon" src="/image/qiandao.png"></image>
+   </view> 
+  </view>
+
+  <view class="state">
+   <view class="state_main">你可以创建一场活动签到，生成签到二维码,\n还可以从通讯录中添加签到人
+   </view>
+   <view class="state_sub">同时支持无指定签到人或者指定签到人的签到项目。</view>
+  </view>
+
+  <button class="btn" type="primary" style="" bindtap="toNew">创建活动签到</button>
+ </view>
+
+ <view class="body" >
+  <view class="notifier">暂无你创建的签到活动</view>
+ </view>
+
+</view>

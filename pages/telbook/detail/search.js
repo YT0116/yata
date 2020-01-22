@@ -1,25 +1,25 @@
-// pages/index/index.js
+// pages/telbook/detail/search.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    searchValue:''
   },
 
-  toMine:function(){
-    wx.switchTab({
-      url: '../mine/mine',
+  input: function (e) {
+    console.log('搜索', e.detail.value)
+    var search = e.detail.value;
+    this.setData({
+      searchValue: search
     })
   },
-
-  toSignIn:function(){
-    wx.navigateTo({
-      url: '../sign-in/sign-in',
+  cancel: function(){
+    this.setData({
+      searchValue: " "
     })
   },
-
   /**
    * 生命周期函数--监听页面加载
    */

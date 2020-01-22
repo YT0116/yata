@@ -1,22 +1,39 @@
-// pages/index/index.js
+// pages/mine/mine.js
+var app = getApp(); 
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+     userInfo:{
+        name:"郝南",
+        gender:"male",
+        depmt:"媒体宣传部",
+        depmtSub:"新媒体部",
+        college:"经济学院",
+        tel:"1550021008"
+     },
+     hasSignIn:false,
+     hasJoin:false,
 
   },
 
-  toMine:function(){
-    wx.switchTab({
-      url: '../mine/mine',
+  toJoin: function (e) {
+   this.setData({
+     hasJoin:true
+   })
+  },
+
+  more: function () {
+    wx.navigateTo({
+      url: '/pages/telbook/data/others',
     })
   },
 
-  toSignIn:function(){
+  toTel:function(){
     wx.navigateTo({
-      url: '../sign-in/sign-in',
+      url: '/pages/telbook/detail/summary1',
     })
   },
 
@@ -24,7 +41,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+       
+   
   },
 
   /**

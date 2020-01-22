@@ -1,0 +1,130 @@
+/* pages/telbook/detail/card.wxss */
+page {
+  background-color: #F5F5F5;
+}
+.fill-whole{
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+}
+.card-back{
+  background-color: white;
+  height: 520rpx;
+  width: 100%;
+  margin-top: 25rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card{
+  height: 320rpx;
+  width: 85%;
+  margin-top: 7%;
+  border-radius: 10rpx;
+  box-shadow:0px 0px 8px 6px rgba(237,237,237,0.5);
+}
+.bumens{
+  display: flex;
+  width: 100%;
+  height: 30rpx;
+  line-height: 30rpx;
+  vertical-align: middle;
+  margin-top: 50rpx;
+  margin-left: 7%;
+  text-align: left;
+}
+.infotext{
+  display: flex;
+  width: 100%;
+  height: 40rpx;
+  line-height: 40rpx;
+  vertical-align: middle;
+  margin-left: 7%;
+  margin-top: 10rpx;
+  text-align: left;
+}
+.tr{
+  display: flex;
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  vertical-align: middle;
+  text-align: left;
+}
+.td{
+  font-size: 28rpx;
+  line-height: 100rpx;
+  vertical-align: middle;
+  margin-left: 7%;
+  width: 100rpx;
+  text-align: left;
+}
+.tag{
+  position: absolute;
+  right: 13%;
+  margin-top: 25rpx;
+  width: 125rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 26rpx;
+  color: white;
+  border-radius: 25rpx;
+}
+.copy{
+  width: 80rpx;
+  height: 40rpx;
+  margin-left: 20rpx;
+  line-height: 40rpx;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 28rpx;
+  color: green;
+  }
+.more{
+  position: absolute;
+  right: 12%;
+  width: 130rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 28rpx;
+  color: green;
+  }
+.myname{
+  font-size: 32rpx;
+  text-align: left;
+}
+.img{
+  width: 30rpx;
+  height: 30rpx;
+}
+.data{
+  font-size: 28rpx;
+  font-weight: 200;
+  width: 160rpx;
+}
+.btn{
+  height: 70rpx;
+  line-height: 70rpx;
+  vertical-align: middle;
+  font-size: 28rpx;
+  width: 50%;
+  margin-top: 30rpx;
+}
+
+.user-icon{
+  overflow:hidden;  
+  display: block;  
+  width: 80rpx;  
+  height: 80rpx;
+  margin:auto;  
+  border-radius: 50%;  
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2)
+}
