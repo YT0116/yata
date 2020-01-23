@@ -37,11 +37,11 @@
     wx:key="item.index" 
    >
     <view class="card-info">
-     <image class="img" src="{{item.imgUrl}}"></image>
+     <image class="img" src="{{imgUrl}}"></image>
      <view class="info">
       <view class="lable_1">姓名：{{item.name}}<view class="line"></view></view>
-      <view class="lable_1">学号：{{item.sid}}<view class="line"></view></view>
-      <view class="lable_1">学院：{{item.college}}</view>
+      <view class="lable_1">学院：{{item.institute}}<view class="line"></view></view>
+      <view class="lable_1">电话：{{item.tel}}</view>
      </view>
     </view>
     <view class='div-line'></view>

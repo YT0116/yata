@@ -13,22 +13,15 @@ Page({
     v: '',//记录新标签的值传递给新标签元素的value
     t: '',//同理，给title
     hasSelected:false,
-    selectedListAll:[{
-      imgUrl:"/image/users.png",
-      name:"郝楠",
-      sid:"1530041003",
-      college:"经济学院"
-    },{
-      imgUrl: "/image/users.png",
-      name: "郝巴",
-      sid: "1540041015",
-      college: "管理学院"
-    },{
-      imgUrl: "/image/users.png",
-      name: "郝冻",
-      sid: "1550041022",
-      college: "医学院"
-    }],
+    imgUrl: "/image/users.png",
+    selectedListAll:[
+    //{
+    //   imgUrl:"/image/users.png",
+    //   name:"郝楠",
+    //   sid:"1530041003",
+    //   college:"经济学院"
+    // }
+    ],
     studentCommentList: [{
       value: '姓名',
       selected: true,
@@ -182,6 +175,11 @@ Page({
       xs: e.xs
     })
     console.log("title="+this.data.title+"xs="+this.data.xs)
+   
+   //根据用户id查询用户数据
+   
+
+
   },
 
   /**
