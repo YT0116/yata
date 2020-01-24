@@ -177,6 +177,7 @@ Page({
 
   /*点击某一个人，跳转到个人名片 */
   viewcard: function (e) {
+    console.log(e)
     console.log(' 点击的学生id为==', e.currentTarget.dataset.id);
     wx.navigateTo({
       url: '/pages/telbook/detail/card?pId=' + e.currentTarget.dataset.id,
@@ -336,24 +337,24 @@ Page({
     /**
     * 设置部门默认成员，连接后台数据就不需要，只做前端演示
     */
-    var member = this.data.member;
-    var bumen = this.data.bumen;
-    var i = 0;
-    for (; i < bumen.length; i++) {
-      if (bumen[i].hasChild == false) {
-        bumen[i].member = member;
-      }
-      else {
-        var cnum = bumen[i].child.length;
-        var j = 0;
-        for (; j < cnum; j++) {
-          bumen[i].child[j].member = member;
-        }
-      }
-    }
-    this.setData({
-      bumen: bumen
-    }) 
+    // var member = this.data.member;
+    // var bumen = this.data.bumen;
+    // var i = 0;
+    // for (; i < bumen.length; i++) {
+    //   if (bumen[i].hasChild == false) {
+    //     bumen[i].member = member;
+    //   }
+    //   else {
+    //     var cnum = bumen[i].child.length;
+    //     var j = 0;
+    //     for (; j < cnum; j++) {
+    //       bumen[i].child[j].member = member;
+    //     }
+    //   }
+    // }
+    // this.setData({
+    //   bumen: bumen
+    // }) 
   },
 
   /**

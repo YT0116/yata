@@ -25,7 +25,7 @@ bindchange="checkboxChange">
    <view wx:if='{{item2.level==1||item2.level==2 || item2.level==3||item2.level==4||item2.level==5}}' class='tag' style="background-color:{{position[item2.level-1].color}}">{{position[item2.level-1].text}}</view>
   </view>
   
-  <image src='/image/arrow-r.png' style="margin-top:30rpx;" class='img-arrow' mode='widthFix'bindtap="viewcard"></image>
+  <image src='/image/arrow-r.png' style="margin-top:30rpx;" class='img-arrow' mode='widthFix'bindtap="viewcard" data-id="{{item2.id}}"></image>
  </view>
  <view class="divline"></view>
 </checkbox-group>
@@ -60,7 +60,7 @@ bindchange="checkboxChange">
     <text>{{item3.name}}</text>  
     <view wx:if='{{item3.level==1 ||item3.level==2 || item3.level==3||item3.level==4}}' class='tag' style="background-color:{{position[item3.level-1].color}}">{{position[item3.level-1].text}}</view>
   </view> 
-  <image src='/image/arrow-r.png' style="margin-top:30rpx;" class='img-arrow' mode='widthFix' bindtap="viewcard"></image>
+  <image src='/image/arrow-r.png' style="margin-top:30rpx;" class='img-arrow' mode='widthFix' bindtap="viewcard" data-id="{{item3.id}}"></image>
  </view>
  <view class="divline"></view>
 </checkbox-group>

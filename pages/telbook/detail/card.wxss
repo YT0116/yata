@@ -109,6 +109,7 @@ page {
   font-size: 28rpx;
   font-weight: 200;
   width: 160rpx;
+  white-space:nowrap;
 }
 .btn{
   height: 70rpx;
