@@ -247,9 +247,7 @@ var that=this;
         console.log('查询到该用户是否绑定过本系统===', res.data);
 
         if (res.data.code == '0000') {
-          wx.setStorageSync('isJoin', true)
           wx.setStorageSync('userId', res.data.data.id);
-          console.log('  wx.setStorageSync()',wx.getStorageSync('isJoin'))
           let result = res.data.data;
           // user: {
           //   name: "郝南",

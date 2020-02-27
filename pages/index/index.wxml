@@ -1,19 +1,18 @@
 <!--pages/index/index.wxml-->
 <view class="container-1">
-<view wx:if="{{!isJoin}}">
+ 
  <view class="header">
-  
+  <!--提示登录-->
   <view class="notifier_login">
    <view class="login_left">
     <image src="/image/tel.png" class="icon" style="margin-right:10rpx"></image>
     <view class="login_text">如果你是研会成员，请尽快加入组织</view>
-   </view> 
+   </view>
    <view class="login_right">
     <image src="/image/you.png" bindtap="toMine" style="width:30rpx;height:30rpx"></image>
    </view>
   </view>
  </view>
-</view>
 
  <view class="body">
   <!--我的任务-->

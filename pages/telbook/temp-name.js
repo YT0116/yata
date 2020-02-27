@@ -17,8 +17,7 @@ Page({
   },
 
   nextstep: function () {  //点击按钮事件
-   
-    var that=this;
+  var that=this;
     var stu=this.data.legitname;
     var name=this.data.myname;
     var that=this;
@@ -36,11 +35,12 @@ Page({
           duration: 1000
         })
 
-
+      
       wx.login({
         success: (res) => {
          
-           console.log('保存的openid为=====', wx.getStorageSync('openId'));
+            
+                console.log('保存的openid为=====', wx.getStorageSync('openId'));
           var imgUrl = that.data.userInfo.avatarUrl;
                 if (wx.getStorageSync('openId') != null || wx.getStorageSync('openId') != undefined) {
                   var      formData={
@@ -50,6 +50,7 @@ Page({
                             mdep: that.data.bumenName,
                             sdep:that.data.childName
                     };
+                 
                  
                   wx.request({
                     url: app.globalData.serverUrl + '/yata/Login',
@@ -64,24 +65,19 @@ Page({
 
                       if (res.data.code == '0000') {
                         wx.setStorageSync('userId',res.data.data.id);
-                        wx.setStorageSync('isJoin', true)
                       }
                     }
                   })
                 }
+
         }
       })
-     
+
 
       setTimeout(function () {
-        // wx.navigateTo({
-        //   url: '/pages/telbook/detail/summary1?name='+name+'&bumenName='+that.data.bumenName+'&childName='+that.data.childName,
-          
-        // })
-        wx.reLaunch({
-          url: '/pages/index/index',
+        wx.navigateTo({
+          url: '/pages/telbook/detail/summary1?name='+name+'&bumenName='+that.data.bumenName+'&childName='+that.data.childName,
         })
-      
       }, 1000)
     }else{//如果用户名非法
       wx.showModal({
@@ -92,7 +88,6 @@ Page({
         showCancel: false,
       })
     }
-      
     }, 2000)//settimeout
   },
 
