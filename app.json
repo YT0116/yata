@@ -1,29 +1,27 @@
 {
   "pages": [
     "pages/index/index",
+        "pages/telbook/telbook",
+     
+    "pages/telbook/detail/summary",
+  
     "pages/telbook/detail/summary1",
     "pages/telbook/detail/branch",
-    "pages/telbook/detail/summary",
+    
     "pages/invite-scan/invite-scan-onlylogin",
     "pages/sign-in/sign-in",
     "pages/mine/mine",
-    "pages/test/test",
     "pages/invite/invite",
     "pages/telbook/detail/card",
     "pages/telbook/detail/mycard",
-    "pages/telbook/telbook",
+
     "pages/telbook/temp-name",
     "pages/telbook/data/myself",
     "pages/telbook/fill",
     "pages/telbook/data/others",
     "pages/telbook/detail/search",
-    
     "pages/invite-scan/invite-scan",
-    
     "pages/new/new"
-    
-    
-    
   ],
   "window": {
     "navigationBarTitleText": "YaTa校园活动",

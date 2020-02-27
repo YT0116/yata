@@ -1,9 +1,9 @@
 /* pages/telbook/telbook.wxss */
 .bk-title{  /*通讯录名称*/
-font-size: 38rpx;
-text-align: center;
-width: 100%;
-margin-top: 15%;
+    font-size: 38rpx;
+    text-align: center;
+    width: 100%;
+    margin-top: 15%;
 }
 .welcome{
   font-size: 32rpx;
@@ -12,10 +12,16 @@ margin-top: 15%;
   margin-top: 20rpx;
 }
 .user-icon{
+  
   margin-top: 80rpx;
-  border-radius: 50%;
-  width: 160rpx;
-  height: 160rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user-icon image {
+      border-radius: 50%;
+      width: 160rpx;
+      height: 160rpx;
 }
 .nickname{
   width: 100%;
@@ -31,17 +37,17 @@ margin-top: 15%;
   height: 40rpx;
   line-height: 40rpx;
   vertical-align: middle;
-  text-align: left;
+  text-align: center;
 }
 .td{
   color: gray;
   font-size: 28rpx;
-  line-height: 60rpx;
+  line-height: 80rpx;
   vertical-align: middle;
   height: 100%;
   margin-left: 7%;
   width: 28%;
-  text-align: left;
+  text-align: center;
 }
 .choices{
   height: 50rpx;
@@ -51,14 +57,20 @@ margin-top: 15%;
   height: 100%;
   color: black;
   font-size: 28rpx;
-  line-height: 60rpx;
+  line-height: 80rpx;
   vertical-align: middle;
 }
 .short-divline{
+   display: flex;
+  justify-content: center;
   width: 70%;
   height: 1rpx;
-  margin-top: 25rpx;
+  margin: 0 auto;
+  margin-top: 25rpx ;
   border-bottom: 2rpx solid #CCCCCC;
+  text-align: center;
+ 
+  align-items: center;
 }
 
 .btn{

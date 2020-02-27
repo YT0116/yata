@@ -57,6 +57,7 @@ margin-top: 15%;
 .short-divline{
   width: 70%;
   height: 1rpx;
+  margin: 0 auto;
   margin-top: 25rpx;
   border-bottom: 2rpx solid #CCCCCC;
 }

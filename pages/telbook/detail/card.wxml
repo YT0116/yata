@@ -5,10 +5,15 @@
     
  <view class="tr" style="margin-top:20rpx;">
   <view class="td">
-    <image src="/image/users.png" class="user-icon"></image > 
+      <block wx:if='{{card.headerImg}}'>
+        <image class="user-icon" src="{{card.headerImg}}"></image>
+      </block>
+        <block wx:else>
+        <image class="user-icon" src="/image/users.png"></image>
+      </block>
   </view>
   <view class="td" style="margin-left:6%;">
-    <view class="myname">{{card.name}}</view>
+    <view class="myname">{{card.name}}</view>   
   </view>
   <view class="img" style="margin-left:10rpx;">
     <image class="img" src="{{card.sex.src}}"></image>
@@ -29,6 +34,6 @@
  </view>
    </view>
    
-<!-- <button class='btn' type='primary' plain='true'>添加为微信好友</button> -->
+<button class='btn' type='primary' plain='true'>添加为微信好友</button>
  </view>
 </view>

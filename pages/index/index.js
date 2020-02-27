@@ -1,11 +1,12 @@
 // pages/index/index.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    isJoin:false
   },
 
   toMine:function(){
@@ -24,7 +25,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+  
   },
 
   /**
@@ -38,7 +39,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    console.log('wx.getStorageSync',wx.getStorageSync('isJoin'))
+    if (wx.getStorageSync('isJoin') != null || wx.getStorageSync('isJoin') != undefined){
+      this.setData({
+        isJoin: wx.getStorageSync('isJoin')
+      })
+    }
+     
   },
 
   /**

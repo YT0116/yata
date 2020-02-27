@@ -57,10 +57,10 @@ page {
 }
 .td{
   font-size: 28rpx;
-  line-height: 100rpx;
+  line-height: 90rpx;
   vertical-align: middle;
   margin-left: 7%;
-  width: 100rpx;
+  width: 120rpx;
   text-align: left;
 }
 .tag{
@@ -108,7 +108,7 @@ page {
 .data{
   font-size: 28rpx;
   font-weight: 200;
-  width: 160rpx;
+  width: 250rpx;
 }
 .btn{
   height: 70rpx;
@@ -118,13 +118,10 @@ page {
   width: 50%;
   margin-top: 30rpx;
 }
-
 .user-icon{
-  overflow:hidden;  
-  display: block;  
-  width: 80rpx;  
+  width: 80rpx;
   height: 80rpx;
-  margin:auto;  
-  border-radius: 50%;  
-  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2)
+  margin-left: 5%;
+  border-radius: 50%;
+  margin-top: 5rpx; /*(90-80)÷2*/
 }

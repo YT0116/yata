@@ -11,14 +11,14 @@ page {
   text-align: center;
   align-items: center;
 }
- .tr{
+.tr{
   background-color: white;
   display: flex;
   width: 100%;
   height: 90rpx;
   line-height: 90rpx;
   vertical-align: middle;
-  text-align: left; 
+  text-align: left;
 }
 .td{
   font-size: 28rpx;
@@ -27,16 +27,7 @@ page {
   margin-left: 7%;
   width: 80rpx;
   text-align: left;
-
-} 
-
-.text{
-  margin-left: 20rpx;
-  font-size: 28rpx;
-  font-weight: 200;
-  width: 70%;
 }
-
 .img{
   margin-left: 7%;
   width: 80rpx;
@@ -46,7 +37,7 @@ page {
   width: 40rpx;
 }
 .img-arrow{
-  position: absolute; 
+  position: absolute;
   margin-top: 65rpx;
   right: 8%;
   width: 30rpx;
@@ -54,40 +45,33 @@ page {
 .data{
   margin-left: 20rpx;
   font-size: 28rpx;
-  font-weight: 200rpx;
-  width: 200rpx;
-  display:flex;
-  flex-direction: row;  
-
+  font-weight: 200;
+  width: 70%;
 }
 
-.btn-area{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  bottom: 0;
-  position: fixed;
-  margin-bottom:50rpx;
-  justify-content: space-around;
-}
-
-.btn{
-  width: 250rpx;
-  border-radius: 50rpx;
-  border: solid 1rpx #dcdcdc
-}
-
-.tag{
-  position:absolute;
-  margin-left: 13%; 
-  margin-top: 25rpx;
-  width: 125rpx;
-  height: 40rpx;
-  line-height: 40rpx;
-  vertical-align: middle;
-  text-align: center;
-  font-size: 26rpx;
-  color: white;
-  border-radius: 25rpx; 
-}
-
+/*////////////////////////搜索框*/
+   .search{  
+      width: 90%;  
+      height: 60rpx;
+      margin-top: 20rpx;
+      margin-left: 20rpx;
+      border-radius: 30rpx;
+      background-color: white;
+      display: flex;
+    }  
+    .ser-text{
+      font-size: 28rpx;
+      margin-left: 15rpx;
+      color: grey;
+      width: 30%;
+      height: 60rpx;
+      line-height: 60rpx;
+      vertical-align: middle;
+      text-align: left;
+    }
+    .searchcion {   
+      line-height: 60rpx;
+      margin-left: 270rpx;
+      vertical-align: middle;
+    }  
+  /*///////////////////搜索框*/

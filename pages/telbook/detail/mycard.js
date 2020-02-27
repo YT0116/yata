@@ -10,7 +10,7 @@ Page({
     hasUserInfo: true,
     card: {
       name: '郝南啊',
-      sex: { name: '男', src: '/image/male.png' },//女/image/female.png
+      sex: { name: '男', src: '/img/male.png' },//女/img/female.png
       bumen: {
         name: '媒体宣传部',
         child: '媒体部'
@@ -21,45 +21,13 @@ Page({
     }
   },
 
-  /*
-  复制按钮
-  */
-  copy() {
-    wx.showToast({
-      title: '复制成功',
-    })
-    wx.setClipboardData({
-      data: this.data.card.tel,
-      success: function (res) {
-        wx.getClipboardData({
-          success: function (res) {
-            console.log(res.data) // data
-          }
-        })
-      }
-    })
-  },
-  /*
-    跳转到查看更多个人信息
-  */
-  more:function(){
-    wx.navigateTo({
-      url: '/pages/telbook/data/others',
-    })
-  },
-  /*
-    跳转到编辑个人信息
-  */
-  editmore: function () {
-    wx.navigateTo({
-      url: '/pages/telbook/data/myself',
-    })
-  },
-
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+   var that=this;
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -87,6 +55,84 @@ Page({
       })
     }
 
+
+    console.log('userId类型为===', typeof wx.getStorageSync('userId'))
+    wx.request({
+      url: app.globalData.serverUrl + '/yata/queryPersonById',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+        // 默认值
+      },
+      data: {
+        personId:wx.getStorageSync('userId')
+      },
+      success: function (res) {
+       
+        if (res.data.code == '0000') {
+
+          console.log('返回的用户信息为===', res.data.data);
+          var result = res.data.data;
+          let card = {};
+          let bumen = {};
+          let position = {};
+
+          // card: {
+          //   name: '郝南',
+          //     sex: { name: '男', src: '/img/male.png' },//女/img/female.png
+          //   bumen: {
+          //     name: '媒体宣传部',
+          //       child: '媒体部'
+          //   },
+          //   college: '经济学院',
+          //     tel: '15521198500',
+          //       position: { name: '部长', color: '#00BCD6' }//副部长：0099FF，部员：00CC00
+          // }
+          card['name'] = result.name;
+          card['college'] = result.institute;
+          card['tel'] = result.tel.split('.')[0];
+          if (result.gender == 1) {
+            let obj = { name: '男', src: '/image/male.png' };
+            card['sex'] = obj;
+          } else {
+            let obj = { name: '女', src: '/image/female.png' };
+            card['sex'] = obj;
+          }
+          if (result.sDep == result.mDep) {
+            bumen = { name: app.globalData.mdepMap[result.mDep] }
+            card['bumen'] = bumen;
+          } else {
+            bumen = { name: app.globalData.mdepMap[result.mDep], child: app.globalData.mdepMap[result.sDep] }
+            card['bumen'] = bumen;
+          }
+          if (result.level == 1) {
+            position = { name: '主席', color: '#00BCD6' }
+            card['position'] = position;
+          } else if (result.level == 2) {
+            position = { name: '副主席', color: '#00BCD6' }
+            card['position'] = position;
+          }
+          else if (result.level == 3) {
+            position = { name: '部长', color: '#00BCD6' }
+            card['position'] = position;
+          } else if (result.level == 4) {
+            position = { name: '副部长', color: '#0099FF' }
+            card['position'] = position;
+          } else {
+            position = { name: '部员', color: '#00CC00' }
+            card['position'] = position;
+          }
+
+          that.setData({
+            card: card
+          })
+
+          console.log('mycard.js==card==', that.data.card);
+        }
+
+      }
+    })
+
   },
 
   /**
@@ -100,7 +146,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+   
   },
 
   /**
@@ -136,5 +182,41 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  /*
+  复制按钮
+  */
+  copy() {
+    wx.showToast({
+      title: '复制成功',
+    })
+    wx.setClipboardData({
+      data: this.data.card.tel,
+      success: function (res) {
+        wx.getClipboardData({
+          success: function (res) {
+            console.log(res.data) // data
+          }
+        })
+      }
+    })
+  },
+  /*
+    跳转到查看更多个人信息
+  */
+  more: function () {
+    wx.navigateTo({
+      url: '/pages/telbook/data/others?pId='+wx.getStorageSync('userId'),
+    })
+  },
+  /*
+    跳转到编辑个人信息
+  */
+  editmore: function () {
+    wx.navigateTo({
+      url: '/pages/telbook/data/myself',
+    })
+  },
+
 })

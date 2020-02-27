@@ -15,46 +15,9 @@ Page({
     showName: false,//显示名字选框
     */
     bumenname:'点此选择部门',//显示的部门名称
-    childname: '点此选择子部门',//显示的子部门名称
+    childname: '未输入',//显示的子部门名称
     bumen: [//可以选的所有部门值
-      {
-        id: 0,
-        hasChild: false, //有没有子部门
-        name: '综合办公室'
-      },
-      {
-        id: 1,
-        hasChild: true, //有子部门
-        name: '文娱体育部',
-        child: ['司仪礼仪队','其他']//子部门
-      },
-      {
-        id: 2,
-        hasChild: false,
-        name: '人资财务部'
-      }, 
-      {
-        id: 3,
-        hasChild: true, //有子部门
-        name: '媒体宣传部',
-        child: ['编辑部', '媒体部', '宣传部']//子部门
-      },
-      {
-        id: 4,
-        hasChild: false,
-        name: '学术调研部'
-      },
-      {
-        id: 5,
-        hasChild: false,
-        name: '外招生部'
-      },
-      {
-        id: 6,
-        hasChild: true,
-        name: '旭日青年志愿者服务队',
-        child: ['旭日青年志愿者', '心理服务部']//子部门
-      }
+     
     ],
     index: 2,//部门默认显示位置
     
@@ -62,22 +25,26 @@ Page({
   },
 
   nextstep: function(){  //点击按钮事件
+
   wx.navigateTo({
    // url: '/pages/telbook/fill',
-   url: '/pages/telbook/temp-name',//暂时跳转到强制的选择姓名页面
+   url: '/pages/telbook/temp-name?bumenname='+this.data.bumenname+'&childname='+this.data.childname,//暂时跳转到强制的选择姓名页面
   })
+
   },
   bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    console.log('picker1发送选择改变，携带值为', e.detail.value)
     this.setData({
       index: e.detail.value,
       bumenname: this.data.bumen[e.detail.value].name,
+      childname: '未输入'
     })
     if (this.data.bumen[e.detail.value].hasChild==true){//有子部门
       this.setData({
         showChild: true,
         join:true
       })
+   //   this.bindPickerChange2();
     }
     else{
       this.setData({
@@ -88,10 +55,12 @@ Page({
     }
   },
   bindPickerChange2: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+   console.log('触发子部门的pick组件-----');
+    var index = e.detail.value;
+    console.log('picker2发送选择改变，携带值为', e.detail.value,'index===',index)
     this.setData({
-      childindex: e.detail.value,
-      childname: this.data.bumen[this.data.index].child[e.detail.value],
+      childindex: index,
+      childname: this.data.bumen[this.data.index].child[index],
       join:false
       //showName: true
     })
@@ -108,6 +77,136 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    var serverUrl=app.globalData.serverUrl;
+    var that=this;
+      wx.request({
+        url: serverUrl +'/yata/getAllSDeps',
+        method:'post',
+        success:function(res){
+          console.log(res);
+          var result=res.data.data;
+          console.log('AllSDeps====',result);
+         
+          var c=[];
+          var childs=[];
+          var fathers=[];
+          var bumen=[];
+          var obj={};
+          var index = res.data.data.mdepId;
+          for(var item in result){
+            
+            console.log(item);
+                if (index == result[item].mdepId ){
+                  fathers.push(result[item].mDep);
+                  fathers = that.deleteSame(fathers);
+                  c.push( result[item].sDep);
+                  childs.push(c);
+                }else{
+                  c = [];
+                  fathers.push(result[item].mDep);
+                  c.push(result[item].sDep);
+  
+                  index = result[item].mdepId;
+                  childs.push(c);
+                }
+            
+            console.log("now==",result[item].mdepId,"before=="+index);
+            
+          }
+          console.log(childs);
+          var step = childs[0].length-1;
+          console.log(step, childs.length);
+          var c_index=0;
+          var result=[];
+          for(var i=0;i<childs.length;i++){
+                if (step >=0 && childs[i][0]!=undefined) {
+                  i += step;
+                  result[c_index] = childs[i];
+                  console.log(childs[i]);
+
+                  console.log(step, i);
+                  c_index++;
+                } else {
+                  result[c_index] = [];
+
+                  i += step;
+                  console.log(step, i, result[c_index]);
+
+                  c_index++;
+                }
+                  if (childs[i + 1] == null || childs[i + 1]==undefined){
+                    step =0;
+                  }else{
+                      step = childs[i + 1].length - 1;
+                  }
+          }
+          var j=0;
+          var i=0;
+          console.log("******", fathers.length, result[0].length);
+          while(i<fathers.length && j<result.length){
+            console.log("----------Enter while------", result[j]);
+            //       id: 6,
+            //       hasChild: true,
+            //       name: '旭日青年志愿者服务队',
+            //       child: ['旭日青年志愿者', '心理服务部']//子部门
+                  obj['id']=i;
+                   obj['name']=fathers[i];
+                   if(result[j].length==0 ){
+                     obj['hasChild']=false;
+                   }else {
+                     obj['hasChild'] = true;
+                     obj['child']=result[j];
+                   }
+                  i++;
+                  j++;
+                 bumen.push(obj);
+                  obj={};
+          }
+          console.log(bumen,fathers,result);
+          // that.setData({
+          //   bumen:bumen
+          // })
+        }
+      })
+    // child: ["司仪礼仪队"]
+    // hasChild: true
+    // id: 0
+    // name: "文娱体育部"
+    wx.request({
+      url: serverUrl + '/yata/queryDepRelation',
+      method: 'post',
+      success: function (res) {
+        console.log('queryRelation===',res.data.data);
+        var result=res.data.data
+        var bumen = []
+
+        for(var i in result){
+        
+          var obj = {}
+          if (result[i].sDeps.length == 0){
+            obj['hasChild'] = false
+          }else{
+            
+            obj['child'] = []
+            for (var j in result[i].sDeps){
+              obj['child'].push(result[i].sDeps[j].sDep)  
+            }
+            obj['hasChild'] = true
+          }
+            obj['id'] = result[i].id
+            obj['name'] = result[i].mDep
+
+            bumen.push(obj)
+        }
+        that.setData({
+          bumen: bumen
+        })
+        console.log('TelBook====',that.data.bumen)
+      }
+      })
+
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -188,5 +287,22 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+   deleteSame:function(array) {
+    var newArr = [];
+    for(var i = 0; i<array.length;i++){
+  //开闭原则
+  var bool = true;
+  //每次都要判断新数组中是否有旧数组中的值。
+  for (var j = 0; j < newArr.length; j++) {
+    if (array[i] === newArr[j]) {
+      bool = false;
+    }
   }
+  if (bool) {
+    newArr[newArr.length] = array[i];
+  }
+}
+return newArr;
+    }
 })
