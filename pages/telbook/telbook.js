@@ -26,11 +26,11 @@ Page({
 
   nextstep: function(){  //点击按钮事件
 
-  
   wx.navigateTo({
    // url: '/pages/telbook/fill',
    url: '/pages/telbook/temp-name?bumenname='+this.data.bumenname+'&childname='+this.data.childname,//暂时跳转到强制的选择姓名页面
   })
+
   },
   bindPickerChange: function (e) {
     console.log('picker1发送选择改变，携带值为', e.detail.value)
@@ -141,7 +141,6 @@ Page({
                       step = childs[i + 1].length - 1;
                   }
           }
-
           var j=0;
           var i=0;
           console.log("******", fathers.length, result[0].length);
@@ -159,24 +158,53 @@ Page({
                      obj['hasChild'] = true;
                      obj['child']=result[j];
                    }
-
                   i++;
                   j++;
                  bumen.push(obj);
                   obj={};
           }
-
-  
           console.log(bumen,fathers,result);
-
-          that.setData({
-            bumen:bumen
-          })
-
+          // that.setData({
+          //   bumen:bumen
+          // })
         }
       })
+    // child: ["司仪礼仪队"]
+    // hasChild: true
+    // id: 0
+    // name: "文娱体育部"
+    wx.request({
+      url: serverUrl + '/yata/queryDepRelation',
+      method: 'post',
+      success: function (res) {
+        console.log('queryRelation===',res.data.data);
+        var result=res.data.data
+        var bumen = []
 
+        for(var i in result){
+        
+          var obj = {}
+          if (result[i].sDeps.length == 0){
+            obj['hasChild'] = false
+          }else{
+            
+            obj['child'] = []
+            for (var j in result[i].sDeps){
+              obj['child'].push(result[i].sDeps[j].sDep)  
+            }
+            obj['hasChild'] = true
+          }
+            obj['id'] = result[i].id
+            obj['name'] = result[i].mDep
 
+            bumen.push(obj)
+        }
+        that.setData({
+          bumen: bumen
+        })
+        console.log('TelBook====',that.data.bumen)
+      }
+      })
 
 
     if (app.globalData.userInfo) {

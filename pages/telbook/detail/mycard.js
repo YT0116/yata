@@ -28,36 +28,6 @@ Page({
   onLoad: function (options) {
    var that=this;
 
-
-    wx.request({
-      url: 'http://127.0.0.1:8080/activity/createActi',
-      method: 'post',
-      data: {
-        // actiOpenid: that.data.openid,
-        //acti_id: that.data.acti_id,
-        actiOpenid: 'lmy123456',
-        actiName: '篮球',
-        inStTime: '2010-2-20 14:21:00',
-        inEnTime: '2010-2-20 14:21:00',
-        outStTime: '2010-2-20 14:21:00',
-        outEnTime: '2010-2-20 14:21:00',
-        cardvalue: '菜虚鲲',
-        //cardvalue: that.data.cardvalue,
-        //create_time: util.formatTime(new Date()),
-        userldList: '[1]',
-        //flag:0
-      },
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        console.log('=================返回的活动信息为=', res.data)
-      }
-    })
-
-
-
-
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -176,26 +146,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.request({
-      url: 'http://127.0.0.1:8080/activity/createActi',
-      method: 'POST',
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data: {
-        actiOpenid: '44444444444444444444444',
-          actiName: '羽毛球比赛',
-          inEnTime: '2020-01-22 12:00:00',
-          inStTime: '2020-01-22 12:00:00',
-          outEnTime: '2020-01-22 12:00:00',
-          outStTime: '2020-01-22 12:00:00',
-          cardvalue: '学生',
-          userIdList: '[1]'
-      },
-      success: function (res) {
-        console.log('=================返回的活动信息为=', res.data)
-      }
-    })
+   
   },
 
   /**
